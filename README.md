@@ -23,8 +23,8 @@ Esta aplicação é uma API para geração e verificação de assinaturas digita
 
 ### 2. Clonar o repositório
 ```bash
-git clone <url-do-repositorio>
-cd api-decrypt-teste/api
+git clone https://github.com/vilelacode/document-signing-api.git
+cd api
 ```
 
 ### 3. Configurar as propriedades
@@ -50,7 +50,7 @@ A aplicação estará disponível em `http://localhost:8080`.
 
 ## Estrutura de Pastas Importante
 - `src/main/resources/arquivos/` — Exemplo de arquivos para assinar
-- `src/main/resources/cadeia/` — Certificados de autoridades confiáveis
+- `src/main/resources/cadeia/` — Certificados confiáveis
 - `src/main/resources/pkcs12/` — Certificados PKCS#12 para assinatura
 - `signed-files/` — Onde as assinaturas geradas são salvas
 
