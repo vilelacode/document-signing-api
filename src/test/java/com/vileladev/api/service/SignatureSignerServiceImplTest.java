@@ -50,7 +50,6 @@ class SignatureSignerServiceImplTest {
         String alias = "invalid";
         String password = "wrong";
 
-        // Act & Assert
         assertThrows(DocumentSigningException.class, () ->
             signerService.generateAttachedSignature(
                 fakePkcs12.toString(),
