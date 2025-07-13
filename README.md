@@ -2,6 +2,9 @@
 
 Esta aplicação é uma API para geração e verificação de assinaturas digitais em arquivos, utilizando o padrão CMS (Cryptographic Message Syntax) e certificados digitais no formato PKCS#12.
 
+**Atenção:** Esta API tem fins **exclusivamente educacionais**. A definição de variáveis sensíveis diretamente no `docker-compose.yml`, como senha de certificados, **não é recomendada em ambientes de produção**. 
+Existem inúmeras formas de manipular essas envs de forma segura.
+
 ## Tecnologias Utilizadas
 
 - **Java 17**
@@ -17,38 +20,21 @@ Esta aplicação é uma API para geração e verificação de assinaturas digita
 
 ## Como Executar a Aplicação
 
-### 1. Pré-requisitos
-- Java 17 instalado
-- Maven instalado
-
-### 2. Clonar o repositório
+### 1. Clonar o repositório
 ```bash
 git clone https://github.com/vilelacode/document-signing-api.git
 cd api
 ```
 
-### 3. Configurar as propriedades
-Edite o arquivo `src/main/resources/application.properties` conforme necessário:
-- `alias`: Alias do certificado no PKCS#12
-- `app.signature.storage-dir`: Pasta onde as assinaturas serão salvas
-- `certificates.directory`: Pasta com certificados de autoridades para validação
-
-### 4. Executar a aplicação
-
-#### Usando Maven:
+### 2. Executar com Docker Compose
 ```bash
-mvn spring-boot:run
+docker compose up --build
 ```
-
-#### Ou gerando o JAR:
-```bash
-mvn clean package
-java -jar target/api-0.0.1-SNAPSHOT.jar
-```
-
 A aplicação estará disponível em `http://localhost:8080`.
 
-## Estrutura de Pastas Importante
+> As variáveis de ambiente necessárias (como `ALIAS` e `PASSWORD`) já estão definidas no `docker-compose.yml`.
+
+## Estrutura de Pastas Importantes
 - `src/main/resources/arquivos/` — Exemplo de arquivos para assinar
 - `src/main/resources/cadeia/` — Certificados confiáveis
 - `src/main/resources/pkcs12/` — Certificados PKCS#12 para assinatura

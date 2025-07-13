@@ -1,0 +1,19 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vileladev-api
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - ALIAS={E2618A8B-20DE-4DD2-B209-70912E3177F4}
+      - PASSWORD=bry123456
+    volumes:
+      - ./storage:/app/storage
+    restart: unless-stopped
+
+networks:
+  vileladev-network:
+    driver: bridge
